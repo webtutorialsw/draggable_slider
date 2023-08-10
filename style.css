@@ -1,0 +1,90 @@
+body {
+    background-color: #101019;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.slider {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    user-select: none;
+    padding: 0 5vw;
+    width: fit-content;
+}
+
+.slide {
+    width: 50vw;
+    height: 500px;
+    margin: 0 5vw;
+    position: relative;
+    transition: all .7s ease;
+}
+.slide > .photo {
+    width: inherit;
+    height: inherit;
+    transition: all 1s ease;
+}
+.slide > .photo > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.slide > .text {
+    position: absolute;
+    bottom: 20%;
+    right: -50px;
+    color: white;
+    transition: all .4s ease;
+}
+.slide > .text h2 {
+    font-size: 4rem;
+    margin-bottom: 0;
+}
+.slide > .text p {
+    font-size: 1.3rem;
+    margin-top: .5rem;
+}
+
+/* slide numbers */
+.slide .photo::before {
+    content: '';
+    position: absolute;
+    color: #fff;
+    transform: rotate(-90deg);
+    top: 40px;
+    left: -60px;
+}
+
+.slide:nth-child(1) .photo::before {
+    content: '01 _____ 05';
+}
+.slide:nth-child(2) .photo::before {
+    content: '02 _____ 05';
+}
+.slide:nth-child(3) .photo::before {
+    content: '03 _____ 05';
+}
+.slide:nth-child(4) .photo::before {
+    content: '04 _____ 05';
+}
+.slide:nth-child(5) .photo::before {
+    content: '05 _____ 05';
+}
+
+/* Press animation */
+.slider:active {
+    cursor: grabbing;
+}
+.slider:active .slide {
+    transform: scale(0.9);
+    margin: 0 0; 
+}
+.slider:active .slide .text {
+    transform: translateX(-40%);
+}
